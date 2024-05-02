@@ -1,0 +1,109 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: serif;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to right, #4CAF50, #2196F3);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.form {
+  padding: 50px 20px;
+  background: linear-gradient(to bottom right, #ffffff, #d1e7f5);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form > div {
+  width: 400px;
+  margin: 10px auto;
+}
+
+.form .form-element input,
+.form .form-element button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+
+.form .form-element button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form .form-element button:hover {
+  background-color: #45a049; 
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.form .form-element button:hover {
+  animation: pulse 0.5s ease infinite alternate;
+}
+
+
+.form .result {
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: 5px;
+}
+
+.list {
+  width: 800px;
+  margin: 4px auto;
+}
+
+.list h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.list table {
+  width: 100%;
+  text-align: center;
+}
+
+.list table thead tr {
+  background: #66c899;
+  color: #eee;
+}
+
+.list table thead tr th,
+.list table tbody tr td {
+  padding: 5px;
+}
+
+.list table tbody tr:nth-child(odd) {
+  background: #e4dddd;
+}
