@@ -15,6 +15,9 @@ body {
   color: white;
   text-align: center;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -87,6 +90,9 @@ body {
 .list h2 {
   font-size: 40px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .list table {

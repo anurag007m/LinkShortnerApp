@@ -3,8 +3,11 @@ const host = "http://localhost:2000/";
 document
   .querySelector("#create-short-url")
   .addEventListener("click", function () {
-    let longurl = document.querySelector("#longurl").value.trim();
 
+    let longurl = document.querySelector("#longurl").value.trim();
+     //removes white spaces from both sides
+
+     
     if (longurl.length == 0) {
       alert("Please enter a valid URL");
       return;
@@ -26,13 +29,13 @@ document
         return response.json();
       })
       .then(function (data) {
-        if(data.status=="success"){
-            document.querySelector("#short-url").innerHTML= host+data.shorturlid;
+        if (data.status == "success") {
+          document.querySelector("#short-url").innerHTML =
+            host + data.shorturlid;
 
-            document.querySelector("#short-url").href= host+data.shorturlid;
+          document.querySelector("#short-url").href = host + data.shorturlid;
 
-            let html = 
-            ` 
+          let html = ` 
             <tr>
                 <td>${longurl}</td>
                 <td>${host}${data.shorturlid}</td>
@@ -41,7 +44,7 @@ document
             
                 `;
 
-                document.querySelector("#list_urls tbody").innerHTML += html;
+          document.querySelector("#list_urls tbody").innerHTML += html;
         }
       })
       .catch(function (error) {
@@ -57,7 +60,7 @@ document
     .then(function (data) {
       let html = "";
       for (let i = 0; i < data.length; i++) {
-        html +=`
+        html += `
 <tr>
     <td>${data[i].longurl}</td>
     <td>${host}${data[i].shorturlid}</td>

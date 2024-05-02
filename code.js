@@ -26,6 +26,7 @@ connection.connect(function(error) {
   } 
 });
 
+
 app.get('/', function(request, response){
 response.sendFile(__dirname+"/Project2/public/index.html");
 });
@@ -33,6 +34,8 @@ response.sendFile(__dirname+"/Project2/public/index.html");
 app.post("/api/create-short-url", function(request, response){
 
     let uniqueID=Math.random().toString(36).replace(/[^a-z0-9]/gi, '').substring(2,10);
+
+     // SQL query to insert the long URL and short URL ID into the 'links' table
 
     let sql = `INSERT INTO links(longurl,shorturlid) VALUES('${request.body.longurl}', '${uniqueID}')`;
 
@@ -43,6 +46,9 @@ app.post("/api/create-short-url", function(request, response){
             message:"Some error occurred while creating short url"
         });
         }else{
+
+             // Sending a JSON response with the short URL ID upon successful creation
+
             response.status(200).json({status:"success",
             shorturlid:uniqueID
         });
@@ -63,11 +69,18 @@ app.get("/api/get-all-short-urls", function(request, response){
         status: "Failed",
     })
 }else{
+
+     // Sending a JSON response with the retrieved short URLs upon success
+
     response.status(200).json(result);
 }
   });
 
 });
+
+
+// Route handler for redirecting to the long URL associated with a short URL ID
+
 
 app.get('/:shorturlid',function(request,response){
     let shorturlid = request.params.shorturlid;
